@@ -1,4 +1,4 @@
-//Write a function min that takes two arguments and returns their minimum.
+//A function takes two arguments and returns their minimum.
 
 function min(a , b) {
   if (a < b) {
