@@ -1,0 +1,46 @@
+let array = [];
+
+function range(lower, upper) { //adds the range of values to the array
+  let Bottom = lower;  //this loop can be done using a for loop to make more compact and readable  
+  let Top = upper;
+  while(Bottom <= Top){
+    array.push(Bottom);
+    Bottom = Bottom + 1; 
+    }
+  return array;
+  }
+
+function sum(numbers){ //produces the total of all numbers in an array 
+  let total = 0;
+  for (let counter = 0; counter < numbers.length; counter += 1) {
+    total = total + numbers[counter];
+  }
+  return total;
+}
+    
+console.log(sum(range(1, 10))); // if 55 then the above code works
+
+// the below code modifies the above range fuction to take in a third argument which controls how much the array increase in values from oen to the next
+
+let array2 =[];
+function rangeStepper(lower, upper, step) { //adds the range of values to the array
+    if (Math.sign(step) == 1) {  //if the step value chosen is positive. makes values count up to the maximum
+    let Bottom = lower;    
+  	let Top = upper;
+    while(Bottom <= Top){
+      array2.push(Bottom);
+      Bottom = Bottom + step; 
+      }
+    return array2;
+  } else if (Math.sign(step) == -1) { //if the step value chosen is negative. makes values count down from highest to lowest value
+     let Min = lower;
+     let Max = upper;    
+  	 while(Max >= Min){
+      array2.push(Max);
+      Max = Max - Math.abs(step); // 
+      }
+    return array2;
+  }
+}
+ 
+console.log(rangeStepper(1, 10, -3)); //it works! 
