@@ -1,0 +1,27 @@
+//A function that builds up a list structure like the one shown when given [1, 2, 3] as argument
+
+function arrayToList(array) {
+  let list = null; 
+  for (let i = array.length - 1; i >= 0 ; i --) { //this section can be confusing. The loop cycles for as many elements there are in the array. 
+    list =  {value: array[i}, rest: list}; 
+    console.log(list); //shows how the operation works, it cycles backwards through the array. every loop adds more to "list" while still maintaining the previous loops value. 
+  }
+  return list;
+}
+
+console.log(arrayToList([10, 20]));
+// → {value: 10, rest: {value: 20, rest: null}}
+
+
+// A function that takes in a list structure and outputs the list as an array
+
+function listToArray(list){
+  let array = [];
+  for (; list !== null; list = list.rest) {
+    array.push(list.value);
+  }
+  return array;
+}
+  
+console.log(listToArray(arrayToList([10, 20, 30])));
+// → [10, 20, 30]
