@@ -1,19 +1,29 @@
 //reverseArray, takes an array as argument and produces a new array that has the same elements in the inverse order.
 
+
 function reverseArray(array){
   let freshArray = [];
-  let startPos = array.length;
-  for (let i = array.length; i < 0; i = i -1) {
-    freshArray.push(array[startPos]);
+  for (let i = array.length -1 ; i >= 0; i --) {
+    freshArray.push(array[i]);
   }
   return freshArray;
 }
 
-console.log(reverseArray(["A", "B", "C"]));
+console.log(reverseArray([1, 2, 3]));
 // → ["C", "B", "A"];
 
-
 let arrayValue = [1, 2, 3, 4, 5];
+
+function reverseArrayInPlace(array) {
+  for (let i = 0; i < Math.floor((arrayValue.length)/2); i ++) {
+    let element1 = arrayValue[i];
+    let element2 = arrayValue[arrayValue.length - 1 - i ]; 
+    arrayValue.splice(arrayValue.length - 1 - i, 1, element1);
+    arrayValue.splice(i,1, element2);
+    }
+  return arrayValue;
+}
+
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 // → [5, 4, 3, 2, 1]
