@@ -1,0 +1,27 @@
+// task = Use the reduce method in combination with the concat method to “flatten” an array of arrays into a single array that has all the elements of the original arrays.
+
+
+let arrays = [[1, 2, 3], [4, 5], [6]];
+//none abstracted version using only the concat() method, but could be abstracted more
+
+function Concatinator(array) {
+  let newArray = [];
+  for (let element of array) {
+    newArray = newArray.concat(element);
+    console.log(newArray);
+  }
+  return newArray;
+}
+
+Concatinator(arrays);
+
+//abstracted solution using concat() and reduce() methods
+
+function reducer(a, b) {
+  return a.concat(b); 
+}
+
+console.log(arrays.reduce(reducer)); //reduce is a method avaliable for all arrays. It cycles through all elements of each array and preforms a function on the element, with the total output being stored as the "a" variable in the function.    
+    
+  
+// → [1, 2, 3, 4, 5, 6]
