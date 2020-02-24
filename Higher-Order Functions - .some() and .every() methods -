@@ -1,0 +1,32 @@
+// array.every() method imitation. Will cycle through every element of an array and compare the element to a test function
+// if any element fails the test then the function will output false
+
+
+function every(array, test) {
+  let value = true;
+  for (let i = 0; i < array.length; i ++){
+  	if (test(array[i]) == false) {
+      	let value = false;
+      	return value; 
+        break;
+    }
+  }
+  return value; 
+}
+
+/* using the .every() method imitation but uses the .some() method to go through the array.
+the logic behind it strange. By negating the test function we are making the .some() 
+function output true only if there is an element in the array that fails the test function
+then by negating the .some() method we are essentially "unmasking" that the some function was in fact
+only picking up that there is an element that failed the test. 
+*/
+function every(array, test) {
+  return !array.some(element => !test(element)); 
+}
+
+console.log(every([1, 3, 5], n => n < 10));
+// → true
+console.log(every([2, 4, 16], n => n < 10));
+// → false
+console.log(every([], n => n < 10));
+// → true
